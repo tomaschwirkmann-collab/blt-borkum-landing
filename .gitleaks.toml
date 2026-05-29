@@ -1,0 +1,20 @@
+# gitleaks configuration — secret scanning
+# auto-deployed 2026-05-29 (AIB secret-hygiene rollout)
+title = "gitleaks"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Placeholders, example env files, public publishable keys"
+paths = [
+    '''\.env\.example$''',
+    '''\.env\..*\.example$''',
+    '''\.env\.local\.example$''',
+]
+regexTarget = "match"
+regexes = [
+    '''\[Vault:\s*[^\]]+\]''',
+    '''[A-Za-z0-9_]{3,10}…[A-Za-z0-9_]{2,8}''',
+    '''sb_publishable_[A-Za-z0-9_\-]{20,}''',
+]

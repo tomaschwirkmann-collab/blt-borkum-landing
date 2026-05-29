@@ -1,0 +1,8 @@
+
+# Secret-Hygiene (auto-added 2026-05-29)
+.env
+.env.local
+.env.*.local
+secrets/
+*_key.txt
+*.secret
